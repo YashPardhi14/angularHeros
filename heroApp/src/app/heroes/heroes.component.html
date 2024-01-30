@@ -1,38 +1,16 @@
-
-<h2>My heroes</h2>
+<h2>My Heroes</h2>
 
 <ul class="heroes">
-
-
-    <li *ngFor="let hero of heroes">
-        <button type="button" (click)="onSelect(hero)" [class.selected]="hero===selectedHero">
-<span class="badge">{{hero.id}}</span>
-<span class="name">{{hero.name}}</span>
-        </button>
-    </li>
-
+  <li *ngFor="let hero of heroes">
+    <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
 </ul>
 
+@if(arrayList.length==0){
+  <mat-spinner></mat-spinner>
+}
+
 <app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--################ the hero editor ###############-->
-
-<!-- <h2>{{hero.name | uppercase}} Details </h2>
-
-<div><span>ID:</span>{{hero.id}}</div>
-<div>
-    <label for="name"></label>
-    <input id="name" [(ngModel)]="hero.name" placeholder="Name"> -->
-
-    <!-- <span>Name:</span>{{hero.name}}</div> -->
